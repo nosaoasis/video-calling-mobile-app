@@ -1,20 +1,28 @@
-import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View } from 'react-native';
+import { StatusBar } from "expo-status-bar";
+import { StyleSheet, SafeAreaView } from "react-native";
+
+import ContactsScreen from "./src/screens/ContactScreen";
+import CallingScreen from "./src/screens/CallingScreen";
+import IncomingCallScreen from "./src/screens/IncomingCallScreen";
 
 export default function App() {
+
+  
   return (
-    <View style={styles.container}>
-      <Text>Open up App.js to start working on your app!</Text>
-      <StatusBar style="auto" />
-    </View>
+    <>
+      {/* <SafeAreaView style={styles.container}> */}
+        <StatusBar barStyle={"dark-content"} />
+        {/* <ContactsScreen /> */}
+        {/* <CallingScreen /> */}
+        <IncomingCallScreen />
+      {/* </SafeAreaView> */}
+    </>
   );
 }
 
 const styles = StyleSheet.create({
   container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
+    paddingTop: 10,
+    paddingHorizontal: 5,
   },
 });
