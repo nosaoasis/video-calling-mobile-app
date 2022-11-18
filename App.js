@@ -4,6 +4,7 @@ import { StyleSheet, SafeAreaView } from "react-native";
 import ContactsScreen from "./src/screens/ContactScreen";
 import CallingScreen from "./src/screens/CallingScreen";
 import IncomingCallScreen from "./src/screens/IncomingCallScreen";
+import CallScreen from "./src/screens/CallScreen";
 
 export default function App() {
 
@@ -14,7 +15,8 @@ export default function App() {
         <StatusBar barStyle={"dark-content"} />
         {/* <ContactsScreen /> */}
         {/* <CallingScreen /> */}
-        <IncomingCallScreen />
+        {/* <IncomingCallScreen /> */}
+        <CallScreen />
       {/* </SafeAreaView> */}
     </>
   );

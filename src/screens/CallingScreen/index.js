@@ -2,6 +2,8 @@ import { useState } from "react";
 import { Text, StyleSheet, View } from "react-native";
 import Ionicons from "@expo/vector-icons/Ionicons";
 import MaterialIcons from "@expo/vector-icons/MaterialCommunityIcons";
+import CallActionBox from "../../components/CallActionBox";
+
 
 const CallingScreen = () => {
   return (
@@ -12,20 +14,7 @@ const CallingScreen = () => {
           <Text style={styles.phoneNumber}> Ringing +234 802 **** ****</Text>
         </View>
 
-        <View style={styles.buttonsContainer}>
-          <View style={styles.vectorIconView}>
-            <Ionicons name="camera-reverse" size={25} color="white" />
-          </View>
-          <View style={styles.vectorIconView}>
-            <MaterialIcons name={"camera-off"} size={25} color="white" />
-          </View>
-          <View style={styles.vectorIconView}>
-            <MaterialIcons name={"microphone-off"} size={25} color="white" />
-          </View>
-          <View style={[styles.vectorIconView, {backgroundColor:"red"}]}>
-            <MaterialIcons name={"phone-hangup"} size={25} color="white" />
-          </View>
-        </View>
+        <CallActionBox />
       </View>
     </>
   );
@@ -52,23 +41,6 @@ const styles = StyleSheet.create({
     fontSize: 18,
     color: "white",
     marginTop: 10,
-  },
-  buttonsContainer: {
-    backgroundColor: "#333333",
-    width: "100%",
-    paddingVertical: 20,
-    opacity: 0.8,
-    borderTopLeftRadius: 15,
-    borderTopRightRadius: 15,
-    padding: 20,
-    flexDirection: "row",
-    alignItems: "center",
-    justifyContent: "space-between",
-  },
-  vectorIconView: {
-    backgroundColor: "lightgray",
-    padding: 15,
-    borderRadius: 50,
   },
 });
 
