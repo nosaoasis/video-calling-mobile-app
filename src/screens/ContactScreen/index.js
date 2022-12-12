@@ -1,28 +1,42 @@
-import React, {useState, useEffect} from "react";
+import React, { useState, useEffect } from "react";
 
-import { StyleSheet, Text, View, FlatList, TextInput } from "react-native";
+import {
+  StyleSheet,
+  Text,
+  View,
+  FlatList,
+  TextInput,
+  Pressable,
+} from "react-native";
+import { useNavigation } from "@react-navigation/core";
 
-import dummyContacts from "../../../assets/data/contacts.json"
+import dummyContacts from "../../../assets/data/contacts.json";
 
 const ContactsScreen = () => {
-
   const [searchTerm, setSearchTerm] = useState("");
-  const [filteredContacts, setFilteredContacts] = useState(dummyContacts)
+  const [filteredContacts, setFilteredContacts] = useState(dummyContacts);
+
+  const navigation = useNavigation()
 
   useEffect(() => {
-    const newContactList = dummyContacts.filter(contact => contact.user_display_name.toLowerCase().includes(searchTerm.toLowerCase()))
-    setFilteredContacts(newContactList)
-  }, [searchTerm])
-
+    const newContactList = dummyContacts.filter((contact) =>
+      contact.user_display_name.toLowerCase().includes(searchTerm.toLowerCase())
+    );
+    setFilteredContacts(newContactList);
+  }, [searchTerm]);
 
   const handleChangeText = (value) => {
     setSearchTerm(value);
   };
 
+  const callUser = (user) => {
+    navigation.navigate('Calling', {user})
+  }
+
   return (
     <>
       <View style={styles.container}>
-      <TextInput
+        <TextInput
           style={styles.searchInput}
           placeholder="Search"
           value={searchTerm}
@@ -31,7 +45,9 @@ const ContactsScreen = () => {
         <FlatList
           data={filteredContacts}
           renderItem={({ item }) => (
-            <Text style={styles.contactName}>{item.user_display_name}</Text>
+            <Pressable onPress={() => callUser(item)}>
+              <Text style={styles.contactName}>{item.user_display_name}</Text>
+            </Pressable>
           )}
           ItemSeparatorComponent={() => <View style={styles.seperator} />}
         />
@@ -45,20 +61,20 @@ const styles = StyleSheet.create({
     fontSize: 16,
     color: "blue",
     marginVertical: 5,
-    marginHorizontal:10,
+    marginHorizontal: 10,
   },
   seperator: {
     width: "100%",
     height: 1,
-    backgroundColor: "#f0f0f0"
+    backgroundColor: "#f0f0f0",
   },
   searchInput: {
     backgroundColor: "#f0f0f0",
     padding: 10,
     marginHorizontal: 10,
     borderRadius: 5,
-    marginBottom: 10
+    marginBottom: 10,
   },
-})
+});
 
 export default ContactsScreen;

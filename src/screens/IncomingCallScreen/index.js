@@ -21,7 +21,7 @@ const IncomingCallScreen = () => {
       {/* <View style={styles.root}> */}
       <ImageBackground source={bg} style={styles.bgImage}>
         <Text style={styles.name}>......iamI</Text>
-        <Text style={styles.phoneNumber}>Ringing +234 802 *** ****</Text>
+        <Text style={styles.phoneNumber}>Ringing +234 802 *** **** ***</Text>
 
         <View style={[styles.row, {marginTop:"auto"}]}>
           <View style={styles.iconContainer}>

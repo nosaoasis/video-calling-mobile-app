@@ -12,10 +12,10 @@ const CallActionBox = () => {
     console.warn("you clicked on handleCameraReverse");
   };
   const handleCameraOff = () => {
-    setIsCamaeraOn(!isCameraOn)
+    setIsCamaeraOn(currentValue => !currentValue)
   };
   const handleMicrophoneOff = () => {
-    setIsMicOn(!isMicOn)
+    setIsMicOn(currentValue => !currentValue)
   };
   const handleEndCall = () => {
     console.warn("you clicked on handleEndCall");
